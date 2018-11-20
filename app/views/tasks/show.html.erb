@@ -1,0 +1,25 @@
+<h1> <%= @task.title  %></h1>
+
+<p> <%= @task.details  %></p>
+
+<p>
+  <% if @task.completed %>
+  <% message = "This task has been marked as done" %>
+  <% else %>
+  <% message = "This task is yet to be completed" %>
+  <% end %>
+  <%= message  %>
+</p>
+
+<p>
+<%= link_to 'Delete',
+             task_path(@task),
+                         method: :delete,
+                         data: { confirm: 'Are you sure?' } %> </p>
+<p>
+<%= link_to("Edit", edit_task_path(@task)) %>
+</p>
+<p>
+<%= link_to("Back to homepage", tasks_path) %>
+</p>
+
